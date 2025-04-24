@@ -1,6 +1,6 @@
 import requests
 
-from config.config import SERPAPI_KEY , GROQ_API_KEY
+from config.config import SERP_API_KEY , GROQ_API_KEY
 
 
 def search_target_audience(product_name, product_features, description):
@@ -10,7 +10,7 @@ def search_target_audience(product_name, product_features, description):
     """
     query = f"Who is the target audience for {product_name}? {product_features} {description}"
 
-    url = f"https://serpapi.com/search.json?q={query}&hl=en&api_key={SERPAPI_KEY}"
+    url = f"https://serpapi.com/search.json?q={query}&hl=en&api_key={SERP_API_KEY}"
 
     try:
         response = requests.get(url)

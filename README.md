@@ -41,7 +41,7 @@ The project now runs as a **standalone function** for campaign generation, with 
    Create a `.env` file in the `config` folder and add your API keys:
    ```env
    GROQ_API_KEY=your_groq_api_key
-   SERPAPI_KEY=your_serpapi_key
+   SERP_API_KEY=your_SERP_API_KEY
    GEMINI_API_KEY=your_gemini_api_key
    ```
 

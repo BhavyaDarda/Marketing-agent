@@ -12,15 +12,15 @@ from agents.planning import generate_planning, modify_planning
 
 import google.generativeai as genai
 
-from config.config import HUGGINGFACE_API , SERPAPI_KEY
+from config.config import HUGGINGFACE_API , SERP_API_KEY
 
 gemini_model = genai.GenerativeModel('gemini-2.0-flash-lite')
-image_generator = ImageGenerator(gemini_model, HUGGINGFACE_API, SERPAPI_KEY)
+image_generator = ImageGenerator(gemini_model, HUGGINGFACE_API, SERP_API_KEY)
 
 class MarketingAgent:
-    def __init__(self, groq_api_key, serpapi_key):
+    def __init__(self, groq_api_key, SERP_API_KEY):
         self.groq_api_key = groq_api_key
-        self.serpapi_key = serpapi_key
+        self.SERP_API_KEY = SERP_API_KEY
         self.gemini_text_model = genai.GenerativeModel('gemini-2.0-flash-lite')
         self.gemini_vision_model = genai.GenerativeModel('gemini-2.0-flash-lite')
 

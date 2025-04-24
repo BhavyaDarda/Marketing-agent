@@ -7,11 +7,11 @@ import urllib
 from config.config import HUGGINGFACE_API
 
 class ImageGenerator:
-    def __init__(self, gemini_model=None, huggingface_api_key=HUGGINGFACE_API, serpapi_key=None):
+    def __init__(self, gemini_model=None, huggingface_api_key=HUGGINGFACE_API, SERP_API_KEY=None):
         """Initialize with Google Gemini model, Hugging Face API key, and SerpAPI key."""
         self.gemini_model = gemini_model  # Google Gemini Model Instance
         self.huggingface_api_key = huggingface_api_key  # Hugging Face API Key
-        self.serpapi_key = serpapi_key  # SerpAPI Key for image scraping
+        self.SERP_API_KEY = SERP_API_KEY  # SerpAPI Key for image scraping
         os.makedirs("generated_images", exist_ok=True)  # Ensure folder exists
 
     def generate_images_with_gemini(self, product_name, product_features, description, audience, platform):
@@ -61,7 +61,7 @@ class ImageGenerator:
             search_params = {
                 "engine": "google_images",
                 "q": search_query,
-                "api_key": self.serpapi_key
+                "api_key": self.SERP_API_KEY
             }
 
             search = GoogleSearch(search_params)
@@ -111,7 +111,7 @@ class ImageGenerator:
         if "Could not generate images." in images and self.huggingface_api_key:
             images = self.generate_images_with_huggingface(product_name, product_features, description, audience, platform)
 
-        if "Could not generate images." in images and self.serpapi_key:
+        if "Could not generate images." in images and self.SERP_API_KEY:
             images = self.scrape_images_with_serpapi(product_name, product_features, description, audience, platform)
 
         if "Could not generate images." in images:
@@ -146,10 +146,10 @@ class ImageGenerator:
         return ["Could not generate images."]
 
 
-SERPAPI_KEY = "your_serpapi_key"  # Replace with your actual SerpAPI key
+SERP_API_KEY = "your_SERP_API_KEY"  # Replace with your actual SerpAPI key
 gemini_model = None  # Replace with Google Gemini model instance if available
 
-image_generator = ImageGenerator(gemini_model, HUGGINGFACE_API, SERPAPI_KEY)
+image_generator = ImageGenerator(gemini_model, HUGGINGFACE_API, SERP_API_KEY)
 
 # Generate an image for a product
 product_name = "iPhone X"

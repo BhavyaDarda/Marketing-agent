@@ -1,8 +1,8 @@
-from config.config import GROQ_API_KEY, SERPAPI_KEY
+from config.config import GROQ_API_KEY, SERP_API_KEY
 from agents.MarketingAgent import MarketingAgent
 from social_media.social_media_manager import SocialMediaManager
 
-agent = MarketingAgent(GROQ_API_KEY, SERPAPI_KEY)
+agent = MarketingAgent(GROQ_API_KEY, SERP_API_KEY)
 social_media_manager = SocialMediaManager()  # Social media handler
 
 def generate_campaign(prompt, actions, blog_modifications=None, confirm_blog=False):

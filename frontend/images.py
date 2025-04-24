@@ -10,7 +10,7 @@ def display_images_section():
         return
 
     formatted_prompt = st.session_state["formatted_prompt"]
-    marketing_agent = MarketingAgent(groq_api_key="your_api_key", serpapi_key="your_serp_api_key")
+    marketing_agent = MarketingAgent(groq_api_key="your_api_key", SERP_API_KEY="your_serp_api_key")
 
     # ✅ Image Generation
     if st.button("Generate AI Images"):

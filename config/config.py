@@ -5,7 +5,7 @@ load_dotenv()
 
 # API Keys
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-SERPAPI_KEY = os.getenv("SERPAPI_KEY")
+SERP_API_KEY = os.getenv("SERP_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 HUGGINGFACE_API = os.getenv("HUGGINGFACE_API")
 
